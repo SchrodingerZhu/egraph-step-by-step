@@ -1,0 +1,22 @@
+program = { SOI ~ (variable | number | compound ) ~ EOI }
+
+alpha = _{ 'a'..'z' | 'A'..'Z' }
+digit = _{ '0'..'9' }
+
+symbol = _{ add | subtract | multiply | divide | power | lshift | rshift | modulo }
+    add      = { "+" }
+    subtract = { "-" }
+    multiply = { "*" }
+    divide   = { "/" }
+    power    = { "^" }
+    lshift   = { "<<" }
+    rshift   = { ">>" }
+    modulo   = { "%" }
+
+variable = @{ !digit ~ (alpha | digit)+ }
+number = @{ digit+ }
+function = @{ !digit ~ ( symbol | ( alpha | digit ) + ) }
+compound = { "(" ~ function ~ ( variable | number | compound ) + ~  ")" }
+
+WHITESPACE = _{ WHITE_SPACE }
+COMMENT = _{ "//" ~ (!NEWLINE ~ ANY)* | "/*" ~ (!"*/" ~ ANY)* ~ "*/" }
