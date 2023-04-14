@@ -3,6 +3,10 @@
 version = 3
 
 [[package]]
+name = "arc-symbol"
+version = "0.1.0"
+
+[[package]]
 name = "block-buffer"
 version = "0.10.4"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -140,6 +144,13 @@ dependencies = [
 ]
 
 [[package]]
+name = "relational"
+version = "0.1.0"
+dependencies = [
+ "arc-symbol",
+]
+
+[[package]]
 name = "sha2"
 version = "0.10.6"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -198,10 +209,6 @@ name = "unicode-ident"
 version = "1.0.8"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "e5464a87b239f13a63a501f2701565754bae92d243d4bb7eb12f6d57d2269bf4"
-
-[[package]]
-name = "version-zero"
-version = "0.1.0"
 
 [[package]]
 name = "version_check"
