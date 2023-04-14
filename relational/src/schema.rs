@@ -23,9 +23,8 @@ impl<S, V> ColumnarSchema<S, V> {
     }
 
     pub fn add_row(&mut self, row: Vec<V>) {
-        debug_assert_eq!(row.len(), self.columns.len());
-        for (i, v) in row.into_iter().enumerate() {
-            self.data[i].push(v);
+        for (col, value) in self.data.iter_mut().zip(row.into_iter()) {
+            col.push(value);
         }
     }
 
