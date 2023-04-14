@@ -7,3 +7,4 @@ edition = "2021"
 
 [dependencies]
 arc-symbol = { path = "../arc-symbol" }
+smallvec = "1"
